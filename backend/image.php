@@ -11,7 +11,13 @@
                     <td></td>
                 </tr>
                 <?php
-                $rows=$Image->all();
+                    $all=$News->count();
+                    $div=3;
+                    $pages=ceil($all/$div);
+                    $now=(isset($_GET['p']))?$_GET['p']:1;
+                    // $now=(isset($_GET['p']))??1;
+                    $start=($now-1)*$div;
+                $rows=$Image->all(" limit $start,$div");
 
                 foreach($rows as $row){
                 ?>
@@ -27,6 +33,40 @@
                 ?>
             </tbody>
         </table>
+        <div style="text-align:center;">
+    <?php
+    if(($now-1)>0){
+
+        ?>
+        <a class="bl" style="font-size:30px;" href="?do=image&p=<?=$now-1;?>">&lt;&nbsp;</a>
+        <?php
+    }
+    ?>
+        <?php
+        for ($i=1; $i <=$pages ; $i++) {
+            
+            if ($now==$i) {
+                $font="40px";
+            }
+            else{
+                $font="30px";
+
+            }
+                echo "<a href='?do=image&p=$i' style='font-size:$font'>";
+                echo $i;
+                echo "</a>";
+        }
+
+
+        ?>
+        <?php
+        if ($now+1<=$pages) {
+            ?>
+        <a class="bl" style="font-size:30px;" href="?do=image&p=<?=$now+1;?>">&nbsp;&gt;</a>
+        <?php
+    }
+    ?>
+    </div>
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>
