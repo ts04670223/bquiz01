@@ -20,7 +20,6 @@ foreach ($_POST['id'] as $key => $id) {
             case "mvim":
             case "image":
             case "news":
-            case "menu":
                 $row['sh'] = in_array($id, $_POST['sh']) ? 1 : 0;
                 break;
             case "total";
@@ -35,6 +34,7 @@ foreach ($_POST['id'] as $key => $id) {
             break;
             case "menu":
                 $row['href'] = $_POST['href'][$key];
+                $row['sh'] = in_array($id, $_POST['sh']) ? 1 : 0;
             break;
 
         }
@@ -44,5 +44,4 @@ foreach ($_POST['id'] as $key => $id) {
         $db->save($row);
     }
 }
-
 to("../backend.php?do=$table");

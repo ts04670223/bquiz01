@@ -13,7 +13,9 @@
                 $rows=$Admin->all();
 
                 foreach($rows as $row){
-                ?>
+                    
+                    
+                    ?>
                 <tr>
                     <td width="45%"><input type="text" name="acc[]" value="<?=$row['acc'];?>" style="width:50%"></td>
                     <td width="45%"><input type="password" name="pw[]" value="<?=$row['pw'];?>" style="width:50%"></td>

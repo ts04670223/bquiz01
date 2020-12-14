@@ -13,14 +13,14 @@
                     <td></td>
                 </tr>
                 <?php
-                $rows=$Menu->all();
+                $rows=$Menu->all(['parent'=>0]);
 
                 foreach($rows as $row){
                 ?>
                 <tr>
                     <td><input type="text" name="text[]" value="<?=$row['text'];?>" style="width:50%"></td>
                     <td><input type="text" name="href[]" value="<?=$row['href'];?>" style="width:50%"></td>
-                    <td></td>
+                    <td><?=$Menu->count(['parent'=>$row['id']])?></td>
                     <td><input type="checkbox" name="sh[]" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>></td>
                     <td><input type="checkbox" name="del[]" value="<?=$row['id'];?>"></td>
                     <td><input type="button" value="編輯次選單" onclick="op('#cover','#cvr','./modal/submenu.php?table=<?=$do;?>&id=<?=$row['id'];?>')"></td>
