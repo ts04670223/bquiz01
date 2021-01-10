@@ -87,7 +87,7 @@
 					<span class="t botli">校園映象區</span>
 
 					<div class='cent' onclick="pp(1)">
-						<img src="/icon/up.jpg">
+						<img src="icon/up.jpg">
 					</div>
 					<?php
 					$imgs = $Image->all(['sh' => 1]);
@@ -96,7 +96,7 @@
 					}
 					?>
 					<div class='cent' onclick="pp(2)">
-						<img src="/icon/dn.jpg">
+						<img src="icon/dn.jpg">
 					</div>
 
 
